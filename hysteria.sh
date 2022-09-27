@@ -42,7 +42,7 @@ done
 [[ $EUID -ne 0 ]] && red "注意：请在root用户下运行脚本" && exit 1
 
 check_ip(){
-    IP=$(curl -s6m8 ip.gs) || IP=$(curl -s4m8 ip.gs)
+    IP=$(curl -s4m8 ip.p3terx.com -k | sed -n 1p) || IP=$(curl -s6m8 ip.p3terx.com -k | sed -n 1p)
 
     if [[ -n $(echo $IP | grep ":") ]]; then
         IP="[$IP]"
@@ -54,7 +54,7 @@ check_ip(){
 
 check_tun(){
     vpsvirt=$(systemd-detect-virt)
-    main=`uname  -r | awk -F . '{print $1}'`
+    main=`uname -r | awk -F . '{print $1}'`
     minor=`uname -r | awk -F . '{print $2}'`
     TUN=$(cat /dev/net/tun 2>&1 | tr '[:upper:]' '[:lower:]')
     if [[ ! $TUN =~ "in bad state"|"处于错误状态"|"ist in schlechter Verfassung" ]]; then
