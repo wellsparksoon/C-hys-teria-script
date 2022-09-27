@@ -42,7 +42,7 @@ done
 [[ $EUID -ne 0 ]] && red "注意：请在root用户下运行脚本" && exit 1
 
 check_ip(){
-    IP=$(curl -s4m8 ip.p3terx.com -k | sed -n 1p) || IP=$(curl -s6m8 ip.p3terx.com -k | sed -n 1p)
+    IP=$(curl -s4m8 api64.ipify.org -k) || IP=$(curl -s6m8 api64.ipify.org -k)
 
     if [[ -n $(echo $IP | grep ":") ]]; then
         IP="[$IP]"
