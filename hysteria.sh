@@ -163,13 +163,13 @@ EOF
     }
 }
 EOF
-    wget https://gitlab.com/misakablog/hysteria-script/-/raw/main/hy-clash.yaml -O /root/hy/hy-clash.yaml
+    wget https://raw.githubusercontent.com/blog-misaka/hysteria-script/main/hy-clash.yaml -O /root/hy/hy-clash.yaml
     sed -i "s/METANAME/${ClashMetaName}/" /root/hy/hy-clash.yaml
     sed -i "s/METAIP/${IP}/" /root/hy/hy-clash.yaml
     sed -i "s/METAPORT/${PORT}/" /root/hy/hy-clash.yaml
     sed -i "s/METAOBFS/${OBFS}/" /root/hy/hy-clash.yaml
     cd /root/hy/acl
-    wget -N https://gitlab.com/misakablog/hysteria-script/-/raw/main/GetRoutes.py
+    wget -N https://raw.githubusercontent.com/blog-misaka/hysteria-script/main/GetRoutes.py
     python3 GetRoutes.py
     rm -f GetRoutes.py
     cat <<EOF > /root/hy/acl/hy-v2rayn.json
@@ -386,7 +386,7 @@ net.ipv6.conf.lo.disable_ipv6 = 0" >>/etc/sysctl.d/99-sysctl.conf
 update_v2rule(){
     cd /root/acl
     rm -f Country.mmdb routes.acl
-    wget -N https://gitlab.com/misakablog/hysteria-script/-/raw/main/GetRoutes.py
+    wget -N https://raw.githubusercontent.com/blog-misaka/hysteria-script/main/GetRoutes.py
     python3 GetRoutes.py
     rm -f GetRoutes.py
     green "V2rayN 规则已更新完成！"
@@ -453,6 +453,7 @@ menu() {
     echo -e "#                  ${RED}Hysteria 一键安装管理脚本${PLAIN}                #"
     echo -e "# ${GREEN}作者${PLAIN}: MisakaNo の 小破站                                  #"
     echo -e "# ${GREEN}博客${PLAIN}: https://blog.misaka.rest                            #"
+    echo -e "# ${GREEN}GitHub 项目${PLAIN}: https://github.com/blog-misaka               #"
     echo -e "# ${GREEN}GitLab 项目${PLAIN}: https://gitlab.com/misakablog                #"
     echo -e "# ${GREEN}Telegram 频道${PLAIN}: https://t.me/misakablogchannel             #"
     echo -e "# ${GREEN}Telegram 群组${PLAIN}: https://t.me/+CLhpemKhaC8wZGIx             #"
