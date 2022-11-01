@@ -1,4 +1,4 @@
-# Hysteria 一键安装管理脚本
+# Hys-teria 一键安装管理脚本
 
 ```shell
 wget -N --no-check-certificate https://raw.githubusercontent.com/blog-misaka/hysteria-script/main/hysteria.sh && bash hysteria.sh
